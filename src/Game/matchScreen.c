@@ -255,6 +255,11 @@ static void setPlayerCardButtons( void )
 static void createDiceDisplay( Vector2 upLeft, Vector2 bottomRight, int* sbRolls, int target )
 {
 	size_t num = sb_Count( sbRolls );
+
+	if( num == 0 ) {
+		return;
+	}
+
 	int numRows = (int)sqrtf( (float)num );
 	int numCols = (int)ceilf( (float)num / (float)numRows );
 
@@ -263,8 +268,6 @@ static void createDiceDisplay( Vector2 upLeft, Vector2 bottomRight, int* sbRolls
 
 	float xStep = size.x / ( numCols + 1 );
 	float yStep = size.y / ( numRows + 1 );
-
-	//llog( LOG_DEBUG, "num: %i  rows: %i  cols: %i  xs: %f  ys: %f", num, numRows, numCols, xStep, yStep );
 
 	for( size_t i = 0; i < num; ++i ) {
 		Vector2 offset = vec2( ( ( i / numRows ) + 1 ) * xStep, ( ( i % numRows ) + 1 ) * yStep );

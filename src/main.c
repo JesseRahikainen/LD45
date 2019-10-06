@@ -266,12 +266,16 @@ void processEvents( int windowsEventsOnly )
 			case SDL_WINDOWEVENT_FOCUS_GAINED:
 				llog( LOG_DEBUG, "Gained focus" );
 				focused = true;
+#ifndef __EMSCRIPTEN__ // webasm makes the sound buffer loop if we just pause the audio
 				snd_SetFocus( true );
+#endif
 				break;
 			case SDL_WINDOWEVENT_FOCUS_LOST:
 				llog( LOG_DEBUG, "Lost focus" );
 				focused = false;
+#ifndef __EMSCRIPTEN__ // webasm makes the sound buffer loop if we just pause the audio
 				snd_SetFocus( false );
+#endif
 				break;
 			}
 		}

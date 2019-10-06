@@ -32,7 +32,7 @@ CFLAGS = -s WASM=1 \
 		 --preload-file ../../bin/data@/ \
 		 --no-heap-copy
 		 
-OUT = Xturos.html
+OUT = LD45.html
 RBUILD = release_build
 DBUILD = debug_build
 

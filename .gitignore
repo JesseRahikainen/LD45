@@ -60,6 +60,7 @@ dlldata.c
 *.svclog
 *.scc
 *.ipdb
+*.o
 
 # Chutzpah Test files
 _Chutzpah*
@@ -197,3 +198,7 @@ log.txt
 
 # Design files
 *.pdn
+/*.png
+
+proj/_webasm/release_build
+proj/_webasm/debug_build
